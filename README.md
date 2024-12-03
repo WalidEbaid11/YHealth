@@ -5,7 +5,7 @@ YHealth is a web-based platform designed to predict and diagnose diseases based 
 The project aims to develop a smart healthcare system that leverages machine learning to predict diseases based on patient symptoms. This system will enhance healthcare efficiency by enabling early disease detection and timely medical intervention. The project is focused on creating a web-based platform where users can input their symptoms, and the system will analyze the data using machine learning algorithms to predict potential diseases. Additionally, the system will facilitate online consultations, connecting patients with healthcare professionals for further guidance and treatment.
 
 
-![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20104854.jpg)
+![My Image](https://github.com/WalidEbaid11/YHealth/blob/main/Screenshot/Screenshot%202024-12-03%20104854.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20104942.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105019.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105044.jpg)
