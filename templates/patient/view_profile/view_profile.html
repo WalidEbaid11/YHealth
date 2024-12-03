@@ -1,0 +1,186 @@
+{% extends "basic.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'patient/view_profile/forms.css' %}" />
+<link
+  rel="stylesheet"
+  href="{% static 'patient/view_profile/responsive.css' %}"
+/>
+<link rel="stylesheet" href="{% static 'patient/view_profile/base.css' %}" />
+
+{% endblock %} {% block body %}
+<!-- Content -->
+<div id="content" class="colM">
+  <div id="content-main">
+    <fieldset class="module aligned">
+      <div
+        class="border border-dark rounded-lg mx-auto mt-3"
+        style="width: 1200px; background-color: #f1f2f2"
+      >
+        <div class="container mt-3">
+          <div class="mx-auto text-center">
+            <h2>Patient Profile - {{ puser.patient.name }}</h2>
+          </div>
+          <div class="form-row field-username">
+            <div>
+              <label class="required" for="id_username">Username:</label>
+              <input
+                type="text"
+                name="username"
+                value="{{ puser.username }}"
+                class="vTextField"
+                maxlength="50"
+                required=""
+                id="id_username"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-name">
+            <div>
+              <label class="required" for="id_name">Name:</label>
+              <input
+                type="text"
+                name="name"
+                value="{{ puser.patient.name }}"
+                class="vTextField"
+                maxlength="50"
+                required=""
+                id="id_name"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-email">
+            <div>
+              <label class="required" for="id_email">Email:</label>
+              <input
+                type="text"
+                name="email"
+                value="{{ puser.email }}"
+                class="vTextField"
+                maxlength="100"
+                required=""
+                id="id_email"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-dob">
+            <div>
+              <label class="required" for="id_dob">DOB:</label>
+              <input
+                type="text"
+                name="dob"
+                value="{{ puser.patient.dob|date:'Y-m-d' }}"
+                class="vDateField"
+                size="10"
+                required=""
+                id="id_dob"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-address">
+            <div>
+              <label class="required" for="id_address">Address:</label>
+              <input
+                type="text"
+                name="address"
+                value="{{ puser.patient.address }}"
+                class="vTextField"
+                maxlength="100"
+                required=""
+                id="id_address"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-mobile_no">
+            <div>
+              <label class="required" for="id_mobile_no">Mobile No:</label>
+              <input
+                type="text"
+                name="mobile_no"
+                value="{{ puser.patient.mobile_no }}"
+                class="vTextField"
+                maxlength="15"
+                required=""
+                id="id_mobile_no"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row field-gender">
+            <div>
+              <label class="required" for="id_gender">Gender:</label>
+              <input
+                type="text"
+                name="gender"
+                value="{{ puser.patient.gender }}"
+                class="vTextField"
+                maxlength="10"
+                required=""
+                id="id_gender"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        {% if request.user.patient %}
+        <div class="container mt-3 mb-3 ml-4 mr-4">
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary pr-4 pl-4 mr-5 ml-5"
+              onclick="toggleEdit()"
+            >
+              Edit
+            </button>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </fieldset>
+  </div>
+</div>
+<!-- END Content -->
+
+<script>
+  function toggleEdit() {
+    var fields = document.querySelectorAll(".vTextField, .vDateField");
+    var editButton = document.querySelector(".btn-secondary");
+    if (editButton.innerText === "Edit") {
+      fields.forEach(function (field) {
+        field.disabled = false;
+      });
+      editButton.innerText = "Save";
+    } else {
+      saveData();
+    }
+  }
+
+  function saveData() {
+    var dob = document.getElementById("id_dob").value;
+    $.ajax({
+      url: "{% url 'savepdata' puser.username %}",
+      type: "POST",
+      data: {
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        name: document.getElementById("id_name").value,
+        dob: dob,
+        gender: document.getElementById("id_gender").value,
+        address: document.getElementById("id_address").value,
+        mobile_no: document.getElementById("id_mobile_no").value,
+      },
+      success: function () {
+        alert("New data is saved.");
+        var fields = document.querySelectorAll(".vTextField, .vDateField");
+        fields.forEach(function (field) {
+          field.disabled = true;
+        });
+        var editButton = document.querySelector(".btn-secondary");
+        editButton.innerText = "Edit";
+      },
+    });
+  }
+</script>
+{% endblock %}

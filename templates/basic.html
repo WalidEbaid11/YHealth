@@ -1,0 +1,439 @@
+﻿{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <script src="{% static 'jquery.js' %}"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'homepage/bootstrap/css/bootstrap.min.css' %}">
+    <title>YHealth</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico" />
+    <link rel="stylesheet" href="{% static 'homepage/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/css.css' %}">
+
+    <style>
+                      
+                      .half-width {
+                      width: 100%;
+                      }
+
+                      #consultBtn {
+                    color: #fff; /* لون النص */
+                    background-color: #007bff; /* لون الخلفية الافتراضي للزرار */
+                    border-color: #007bff; /* لون الحدود الافتراضي للزرار */
+                    padding: 10px 20px; /* حجم الهوامش داخلية */
+                    border-radius: 5px; /* تدوير الزوايا */
+                    cursor: pointer; /* تغيير المؤشر عند تحويله إلى زرار */
+                    transition: background-color 0.3s, box-shadow 0.3s; /* تغيير الألوان بشكل سلس */
+                }
+
+                #consultBtn:hover {
+                    background-color: #512DA8; /* لون الخلفية عند تحويل الماوس عليه */
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* ظل عند تحويل الماوس عليه */
+                }
+
+                      /* تحسين مظهر الجدول */
+                .table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                /* تغيير لون رأس الجدول وزيادة التباين مع الخلفية */
+                .table thead th {
+                    background-color: #343a40;
+                    color: #fff;
+                    border: 2px solid #dee2e6; /* حدود مضيئة */
+                    box-shadow: 0 0 10px #dee2e6; /* ظل مضيء */
+                }
+
+                /* تغيير لون خلفية كل صف في الجدول بالتبادل */
+                .table tbody tr:nth-child(even) {
+                    background-color: #f8f9fa; /* خلفية مضئلة */
+                }
+
+                /* تحديد حدود الجدول */
+                .table th,
+                .table td {
+                    border: 1px solid #dee2e6; /* حدود مضيئة */
+                    padding: 8px;
+                }
+
+                /* تغيير لون الظل داخل خلية الجدول عند تحريك الماوس */
+                .table td:hover {
+                    box-shadow: 0 0 10px #007bff; /* تغيير لون الظل عند تحريك الماوس */
+                }
+
+                      
+                    .btn-outline-success {
+                        font-weight: bold; /* جعل النص سميك */
+                        transition: border-color 0.3s ease; /* تغيير لون الحدود بسلاسة */
+                    }
+
+                    .btn-outline-success:hover {
+                        border-color: #007bff; /* تغيير لون الحدود عند تحريك الماوس */
+                    }
+
+
+
+                    #consultbtn:hover {
+                        border: 2px solid #5433AB; /* تغيير لون الحدود عند تحريك الماوس */
+                        transform: scale(1.2); /* تكبير حجم الزر بنسبة 10% */
+                    }
+
+
+                      .role-container {
+                    position: relative;
+                    overflow: hidden;
+                    }
+
+                    .role-container::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                  height: 100%;
+                  background: rgba(255, 255, 255, 0.5); /* Adjust the opacity as needed */
+                  z-index: 1;
+                  transition: opacity 0.2s ease;
+                  opacity: 0; /* Initially transparent */
+                }
+
+                .role-container:hover::before {
+                  opacity: 1; /* Show the overlay on hover */
+                }
+
+                        .card {
+                            width: 350px;
+                            margin: 20px auto;
+                            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                            border-radius: 10px;
+                            overflow: hidden;
+                        }
+
+                        .card-img-top {
+                            width: 100%;
+                            border-radius: 10px 10px 0 0;
+                        }
+
+                        .card-body {
+                            padding: 20px;
+                            background: #f8f8f8;
+                        }
+
+                        .card::before,
+                        .card::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                            transition: all 0.3s ease-in-out;
+                            z-index: -1;
+                        }
+
+                        .card::before {
+                            background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+                        }
+
+                        .card:hover::before {
+                            background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+                        }
+
+                        .card::after {
+                            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+                        }
+
+                        .card:hover::after {
+                            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+                        }
+
+                        .container-login100-form-btn {}
+
+                        .wrap-login100-form-btn {}
+
+                        .login100-form-bgbtn {}
+
+                        .login100-form-btn {}
+
+                        .login100-form-btn:hover {
+                            transform: scale(1.2);
+                            box-shadow: 0 0 100px rgba(255, 155, 155, 3.5);
+                            background-color: #17837d;
+                        }
+
+                        .hover-effect {
+                            font-size: 50px;
+                            padding: 30px 60px;
+                            display: block;
+                            margin: 0 auto;
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 5px;
+                            background-color: #034159;
+                            color: #fff;
+                            cursor: pointer;
+                            transition: background-color 0.1s ease-in-out, transform 0.2s ease-in-out;
+                        }
+
+                        .hover-effect:hover {
+                            background-color: #731702;
+                            transform: scale(1.1);
+                        }
+
+                        .page-header h1 {
+                            font-family: "Roboto";
+                            font-size: 50px;
+                            color: #014040;
+                        }
+
+                        .text-white {
+                            color: white;
+                        }
+
+                        .img {
+                            transition: transform 0.3s ease;
+                        }
+
+                        .img:hover {
+                            transform: scale(2.2);
+                        }
+
+                        .img {
+                            position: relative;
+                            float: left;
+                            width: 200px;
+                            height: 200px;
+                            background-position: 100% 100%;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            box-shadow: 0.3s ease;
+                            box-shadow: 0 0 100px rgba(255, 155, 155, 3.5);
+                        }
+
+                        body {
+                            background-image: url("{% static 'homepage/img21.jpg' %}");
+                            background-attachment: fixed;
+                            opacity: 0.99;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            position: relative;
+                        }
+
+                        body::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: inherit;
+                            background-attachment: inherit;
+                            background-repeat: inherit;
+                            background-size: inherit;
+                            filter: blur(2px);
+                            z-index: -1;
+                        }
+    </style>
+
+
+
+
+    {% block head %}
+
+
+
+    {% endblock %}
+
+
+  
+  </head>
+
+
+  <body>
+    
+      
+
+
+      <div class="container-fluid">
+
+      <div class="page-header mt-1 mb-1 ml-1 ">
+        <center>
+           <h1>YHealth</h1>
+       </center>
+       </div>
+     
+      
+      
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #025951;">
+              <a class="navbar-brand" href="{% url 'home' %}">YHealth </a><?xml version="1.0" encoding="UTF-8" standalone="no"?> <svg height="50" viewBox="0 0 64 64" width="50" xmlns="http://www.w3.org/2000/svg"><g id="healthcare-covid19-coronavirus-hand-hearth"><path d="m15.71 30.27-4.53-13.05a3.125 3.125 0 0 0 -3.56-2.32 3.007 3.007 0 0 0 -2.28 3.71l4.66 14.39z" fill="#ffac96"/><path d="m48.29 30.27 4.53-13.05a3.125 3.125 0 0 1 3.56-2.32 3.007 3.007 0 0 1 2.28 3.71l-4.66 14.39z" fill="#ffac96"/><path d="m25.046 35.682-8.84-5.182a2.994 2.994 0 0 0 -3.8.679l-3.226-9.959a3.125 3.125 0 0 0 -3.56-2.32 3.007 3.007 0 0 0 -2.28 3.71l4.35 16.23a3.948 3.948 0 0 0 1.21 1.96l6.76 6.01a4 4 0 0 1 1.34 2.99v3.2h12v-10.416a8 8 0 0 0 -3.954-6.902z" fill="#ffbcab"/><path d="m58.38 18.9a3.125 3.125 0 0 0 -3.56 2.32l-3.23 9.959a2.994 2.994 0 0 0 -3.8-.679l-8.84 5.182a8 8 0 0 0 -3.95 6.902v10.416h12v-3.2a4 4 0 0 1 1.34-2.99l6.76-6.01a3.948 3.948 0 0 0 1.21-1.96l4.35-16.23a3.007 3.007 0 0 0 -2.28-3.71z" fill="#ffbcab"/><path d="m34 53v8h14v-8h-1-12z" fill="#006df0"/><path d="m30 53h-1-12-1v8h14z" fill="#006df0"/><path d="m45.44 18.56-.71.71-12.73 12.73-12.73-12.73-.71-.71a9 9 0 1 1 12.73-12.72l.71.71.71-.71a9 9 0 1 1 12.73 12.72z" fill="#d80027"/><path d="m45.44 5.84a8.9 8.9 0 0 0 -7.368-2.579 8.994 8.994 0 0 1 5.368 15.3l-.71.71-11.73 11.729 1 1 12.73-12.73.71-.71a9 9 0 0 0 0-12.72z" fill="#bd0022"/><path d="m34 22v-4h4v-4h-4v-4h-4v4h-4v4h4v4z" fill="#f1f2f2"/><g fill="#ffac96"><path d="m50.794 33.7-6.684 3.7a.867.867 0 0 0 -.341 1.138.865.865 0 0 0 1.207.362l5.818-3.2a3 3 0 0 0 1.319-3.609 2.971 2.971 0 0 1 -1.319 1.609z"/><path d="m13.206 33.7 6.684 3.7a.867.867 0 0 1 .341 1.138.865.865 0 0 1 -1.207.362l-5.818-3.2a3 3 0 0 1 -1.319-3.609 2.971 2.971 0 0 0 1.319 1.609z"/></g></g></svg>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'home' %}">Home</a>
+                      </li>
+
+                      
+      
+      
+                    {% if user.is_authenticated %}
+                      
+                      {% if user.patient %}
+      
+                      <li class="nav-item ml-2">
+                      <li class="nav-link" href="{% url 'patient_ui' %}" style="color: rgb(91, 252, 50);">Hello, {{user.patient.name}}</li>
+                      </li>
+                      <li class="nav-item ml-2">
+                          <a class="nav-link" href="{% url 'patient_ui' %}">Profile</a>
+                          </li>
+      
+                      {% endif %}
+                      
+                      {% if user.doctor  %}
+      
+                      <li class="nav-item ml-2">
+                        <li class="nav-link" href="{% url 'doctor_ui' %}" style="color: rgb(91, 252, 50);">Hello, Dr. {{user.doctor.name}}</li>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link" href="{% url 'doctor_ui' %}">Profile</a>
+                            </li>
+      
+      
+                      {% endif %}
+
+                      {% if user.is_superuser  %}
+      
+                      <li class="nav-item ml-2">
+                        <li class="nav-link" href="{% url 'admin_ui' %}" style="color: rgb(91, 252, 50);">Admin: {{user.username}}</li>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link" href="{% url 'admin_ui' %}">Profile</a>
+                            </li>
+      
+      
+                      {% endif %}
+      
+                      <li class="nav-item ml-2">
+      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#logout-modal" style="color: rgb(247, 190, 188);">Log out</button>
+                        
+                      </li>
+      
+      
+      
+      
+                      <!-- Small modal -->
+      
+      <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header"><h4>Logout <i class="fa fa-lock"></i></h4></div>
+            <div class="modal-body"><i class="fa fa-question-circle"></i><span style="color: rgb(42, 187, 6);">{{user.patient.name}}</span>, Are you sure you want to log-off?</div>
+            <div class="modal-footer"><a href="{% url 'logout' %}" class="btn btn-primary btn-block">Logout</a></div>
+          </div>
+        </div>
+      </div>
+                      
+                      {% else %}
+                      
+                      <li class="nav-item ml-2">
+                          <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg2">SIGN UP</a>
+                      </li>
+                      <li class="nav-item ml-">
+                          <a class="nav-link" data-toggle="modal" data-target=".bd-example-modal-lg">SIGN IN</a>
+                      </li>
+                      
+                      {% endif %}
+      
+                  </ul>
+              </div>
+          </nav>
+      
+
+
+
+    
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+     
+  <center>
+    <h1>SIGN-IN  AS:</h1>
+    </center>
+  <br><br>
+  
+    <center>
+  <form>
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col">
+          <a href="{% url 'sign_in_admin' %}">
+           <h3>ADMIN</h3>
+           <img src="{% static 'homepage/AD.png' %}" alt="admin" class="img">
+         </a>
+          
+        </div>
+
+        <div class="col">
+          <a href="{% url 'sign_in_doctor' %}">
+            <h3>DOCTOR</h3>
+            <img src="{% static 'homepage/Do.png' %}" alt="doctor" class="img">
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="{% url 'sign_in_patient' %}">
+            <h3>PATIENT</h3>
+            <img src="{% static 'homepage/P.png' %}" alt="patient" class="img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+</center>
+  
+      </div>
+    </div>
+  </div>
+
+
+
+  {% block body %}
+
+  {% endblock %}
+  
+
+
+
+
+</div>
+
+
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+
+
+</body>
+</html>
