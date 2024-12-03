@@ -33,7 +33,7 @@ The project aims to develop a smart healthcare system that leverages machine lea
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/YHealth.git
+   git clone https://github.com/WalidEbaid11/YHealth.git
    cd YHealth
    ```
 2. **Set Up Virtual Environment**:
