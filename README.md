@@ -9,6 +9,7 @@ The project aims to develop a smart healthcare system that leverages machine lea
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20104942.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105019.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105044.jpg)
+![My Image](https://github.com/WalidEbaid11/YHealth/blob/main/screenshots/Screenshot%202024-05-07%20211636.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105100.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105116.jpg)
 ![My Image](https://github.com/WalidEbaid11/-YHealth-Smart-Healthcare-System-Using-ML/blob/main/Screenshot/Screenshot%202024-12-03%20105132.jpg)
