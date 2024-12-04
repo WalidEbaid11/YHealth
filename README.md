@@ -26,6 +26,7 @@ The project aims to develop a smart healthcare system that leverages machine lea
 - **Comprehensive Datasets**: Utilizes diverse datasets for accurate predictions across multiple diseases.
 - **Secure and Scalable**: Ensures data privacy and scalability for a growing user base.
 
+
 ## Technologies Used
 - **Programming Languages**: Python
 - **Frameworks**: Django (Backend), Bootstrap (Frontend)
